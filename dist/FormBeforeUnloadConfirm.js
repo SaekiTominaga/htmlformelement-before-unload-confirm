@@ -55,3 +55,4 @@ export default class {
     }
 }
 _submitForm = new WeakMap(), _changeCtrl = new WeakMap();
+//# sourceMappingURL=FormBeforeUnloadConfirm.js.map

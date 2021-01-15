@@ -24,4 +24,4 @@ export default class {
      */
     private _windowBeforeUnloadEvent;
 }
-//# sourceMappingURL=FormBeforeUnloadConfirm.esm.d.ts.map
+//# sourceMappingURL=FormBeforeUnloadConfirm.d.ts.map

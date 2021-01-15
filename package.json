@@ -2,7 +2,31 @@
 	"name": "@saekitominaga/htmlformelement-before-unload-confirm",
 	"version": "1.0.0",
 	"description": "Show confirmation dialog message when page is tries to close while filling out a form.",
+	"homepage": "https://github.com/SaekiTominaga/htmlformelement-before-unload-confirm#readme",
+	"bugs": {
+		"url": "https://github.com/SaekiTominaga/htmlformelement-before-unload-confirm/issues"
+	},
+	"license": "MIT",
+	"author": "Saeki Tominaga",
+	"files": [
+		"dist",
+		"src"
+	],
 	"type": "module",
+	"browser": "dist/FormBeforeUnloadConfirm.js",
+	"types": "dist/FormBeforeUnloadConfirm.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SaekiTominaga/htmlformelement-before-unload-confirm.git"
+	},
+	"scripts": {
+		"_build:tsc": "tsc -w",
+		"_build:compress": "onchange -f add -f change -v dist/FormBeforeUnloadConfirm.js -- brotlin compress dist/FormBeforeUnloadConfirm.js -m 1",
+		"_build:minify": "onchange -f add -f change -v dist/FormBeforeUnloadConfirm.js -- terser dist/FormBeforeUnloadConfirm.js -o dist/FormBeforeUnloadConfirm.min.js -c ecma=2020 --mangle --ecma 2020 --module --source-map content='dist/FormBeforeUnloadConfirm.js.map',filename='FormBeforeUnloadConfirm.js',includeSources,url='FormBeforeUnloadConfirm.min.js.map'",
+		"_build:minify-compress": "onchange -f add -f change -v dist/FormBeforeUnloadConfirm.min.js -- brotlin compress dist/FormBeforeUnloadConfirm.min.js -m 1",
+		"_build:minify-declaration": "onchange -f add -f change -v dist/FormBeforeUnloadConfirm.d.ts -- cpy dist/FormBeforeUnloadConfirm.d.ts dist --rename=FormBeforeUnloadConfirm.min.d.ts",
+		"build": "run-p _build:*"
+	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^4.11.1",
 		"@typescript-eslint/parser": "^4.11.1",
@@ -16,26 +40,6 @@
 		"terser": "^5.5.1",
 		"typescript": "^4.1.3"
 	},
-	"main": "dist/FormBeforeUnloadConfirm.esm.js",
-	"types": "dist/FormBeforeUnloadConfirm.esm.d.ts",
-	"scripts": {
-		"_ts-watch:tsc": "tsc -w",
-		"_ts-watch:compress": "onchange -f add -f change -v dist/FormBeforeUnloadConfirm.esm.js -- brotlin compress dist/FormBeforeUnloadConfirm.esm.js -m 1",
-		"_ts-watch:minify": "onchange -f add -f change -v dist/FormBeforeUnloadConfirm.esm.js -- terser dist/FormBeforeUnloadConfirm.esm.js -o dist/FormBeforeUnloadConfirm.min.esm.js -c ecma=2020 --mangle --ecma 2020 --module --source-map base=dist,filename=FormBeforeUnloadConfirm.esm.js,includeSources",
-		"_ts-watch:compress-minify": "onchange -f add -f change -v dist/FormBeforeUnloadConfirm.min.esm.js -- brotlin compress dist/FormBeforeUnloadConfirm.min.esm.js -m 1",
-		"_ts-watch:dts-minify": "onchange -f add -f change -v dist/FormBeforeUnloadConfirm.esm.d.ts -- cpy dist/FormBeforeUnloadConfirm.esm.d.ts dist --rename=FormBeforeUnloadConfirm.min.esm.d.ts",
-		"ts-watch": "run-p _ts-watch:*"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/SaekiTominaga/htmlformelement-before-unload-confirm.git"
-	},
-	"author": "Saeki Tominaga",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/SaekiTominaga/htmlformelement-before-unload-confirm/issues"
-	},
-	"homepage": "https://github.com/SaekiTominaga/htmlformelement-before-unload-confirm#readme",
 	"publishConfig": {
 		"access": "public"
 	}
