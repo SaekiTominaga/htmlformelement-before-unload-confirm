@@ -24,3 +24,18 @@ for (const formElement of document.querySelectorAll('.js-form-beforeunload-confi
   <p><button>Submit</button></p>
 </form>
 ```
+
+## Constructor
+
+```
+new FormBeforeUnloadConfirm(
+  thisElement: HTMLFormElement
+)
+```
+
+### Parameters
+
+<dl>
+<dt>thisElement [required]</dt>
+<dd>Target element</dd>
+</dl>
