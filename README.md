@@ -10,7 +10,7 @@ If the page is tries to close with the contents of the form control changed, a c
 
 ## Examples
 
-```
+```HTML
 <script type="module">
 import FormBeforeUnloadConfirm from './dist/FormBeforeUnloadConfirm.esm.js';
 
@@ -27,7 +27,7 @@ for (const formElement of document.querySelectorAll('.js-form-beforeunload-confi
 
 ## Constructor
 
-```
+```TypeScript
 new FormBeforeUnloadConfirm(
   thisElement: HTMLFormElement
 )
