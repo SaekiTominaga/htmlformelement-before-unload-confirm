@@ -1,7 +1,5 @@
 /**
  * If the page is tries to close with the contents of the form control changed, a confirm dialog is displayed to prevent the changes from being discarded.
- *
- * @version 1.0.0
  */
 export default class {
     #private;
@@ -10,9 +8,13 @@ export default class {
      */
     constructor(thisElement: HTMLFormElement);
     /**
+     * Initial processing
+     */
+    init(): void;
+    /**
      * フォームコントロールの内容が変更されたときの処理
      */
-    private _formCtrlChangeEvent;
+    private _formControlChangeEvent;
     /**
      * フォームが送信されたときの処理
      */

@@ -15,7 +15,8 @@ If the page is tries to close with the contents of the form control changed, a c
 import FormBeforeUnloadConfirm from './dist/FormBeforeUnloadConfirm.esm.js';
 
 for (const formElement of document.querySelectorAll('.js-form-beforeunload-confirm')) {
-  new FormBeforeUnloadConfirm(formElement);
+  const formBeforeUnloadConfirm = new FormBeforeUnloadConfirm(formElement);
+  formBeforeUnloadConfirm.init();
 }
 </script>
 

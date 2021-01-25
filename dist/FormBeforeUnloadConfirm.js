@@ -11,30 +11,41 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     }
     return privateMap.get(receiver);
 };
-var _submitForm, _changeCtrl;
+var _thisElement, _submitForm, _changeControl, _formControlChangeEventListener, _submitEventListener, _windowBeforeUnloadEventListener;
 /**
  * If the page is tries to close with the contents of the form control changed, a confirm dialog is displayed to prevent the changes from being discarded.
- *
- * @version 1.0.0
  */
 export default class {
     /**
      * @param {HTMLFormElement} thisElement - Target element
      */
     constructor(thisElement) {
+        _thisElement.set(this, void 0); // 対象要素
         _submitForm.set(this, false); // フォームが送信されたか
-        _changeCtrl.set(this, false); // フォームコントロールが変更されたか
-        for (const formCtrlElement of thisElement.elements) {
-            formCtrlElement.addEventListener('change', this._formCtrlChangeEvent.bind(this), { once: true, passive: true });
+        _changeControl.set(this, false); // フォームコントロールが変更されたか
+        _formControlChangeEventListener.set(this, void 0);
+        _submitEventListener.set(this, void 0);
+        _windowBeforeUnloadEventListener.set(this, void 0);
+        __classPrivateFieldSet(this, _thisElement, thisElement);
+        __classPrivateFieldSet(this, _formControlChangeEventListener, this._formControlChangeEvent.bind(this));
+        __classPrivateFieldSet(this, _submitEventListener, this._submitEvent.bind(this));
+        __classPrivateFieldSet(this, _windowBeforeUnloadEventListener, this._windowBeforeUnloadEvent.bind(this));
+    }
+    /**
+     * Initial processing
+     */
+    init() {
+        for (const formControlElement of __classPrivateFieldGet(this, _thisElement).elements) {
+            formControlElement.addEventListener('change', __classPrivateFieldGet(this, _formControlChangeEventListener), { once: true, passive: true });
         }
-        thisElement.addEventListener('submit', this._submitEvent.bind(this), { once: true, passive: true });
-        window.addEventListener('beforeunload', this._windowBeforeUnloadEvent.bind(this));
+        __classPrivateFieldGet(this, _thisElement).addEventListener('submit', __classPrivateFieldGet(this, _submitEventListener), { once: true, passive: true });
+        window.addEventListener('beforeunload', __classPrivateFieldGet(this, _windowBeforeUnloadEventListener));
     }
     /**
      * フォームコントロールの内容が変更されたときの処理
      */
-    _formCtrlChangeEvent() {
-        __classPrivateFieldSet(this, _changeCtrl, true);
+    _formControlChangeEvent() {
+        __classPrivateFieldSet(this, _changeControl, true);
     }
     /**
      * フォームが送信されたときの処理
@@ -48,11 +59,11 @@ export default class {
      * @param {BeforeUnloadEvent} ev - Event
      */
     _windowBeforeUnloadEvent(ev) {
-        if (!__classPrivateFieldGet(this, _submitForm) && __classPrivateFieldGet(this, _changeCtrl)) {
+        if (!__classPrivateFieldGet(this, _submitForm) && __classPrivateFieldGet(this, _changeControl)) {
             ev.preventDefault();
             ev.returnValue = ''; // for Chrome https://bugs.chromium.org/p/chromium/issues/detail?id=866818
         }
     }
 }
-_submitForm = new WeakMap(), _changeCtrl = new WeakMap();
+_thisElement = new WeakMap(), _submitForm = new WeakMap(), _changeControl = new WeakMap(), _formControlChangeEventListener = new WeakMap(), _submitEventListener = new WeakMap(), _windowBeforeUnloadEventListener = new WeakMap();
 //# sourceMappingURL=FormBeforeUnloadConfirm.js.map

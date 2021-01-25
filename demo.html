@@ -13,7 +13,8 @@
 			import FormBeforeUnloadConfirm from './dist/FormBeforeUnloadConfirm.js';
 
 			for (const formElement of document.querySelectorAll('.js-form-beforeunload-confirm')) {
-				new FormBeforeUnloadConfirm(formElement);
+				const formBeforeUnloadConfirm = new FormBeforeUnloadConfirm(formElement);
+				formBeforeUnloadConfirm.init();
 			}
 		</script>
 	</head>
