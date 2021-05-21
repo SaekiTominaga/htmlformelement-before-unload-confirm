@@ -37,6 +37,6 @@ new FormBeforeUnloadConfirm(
 ### Parameters
 
 <dl>
-<dt>thisElement [required]</dt>
+<dt><code>thisElement</code> [required]</dt>
 <dd>Target element</dd>
 </dl>
