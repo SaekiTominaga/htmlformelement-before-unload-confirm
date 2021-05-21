@@ -1,6 +1,6 @@
 {
 	"name": "@saekitominaga/htmlformelement-before-unload-confirm",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Show confirmation dialog message when page is tries to close while filling out a form.",
 	"homepage": "https://github.com/SaekiTominaga/htmlformelement-before-unload-confirm#readme",
 	"bugs": {
